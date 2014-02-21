@@ -21,6 +21,17 @@
 		D8BFE66918B2F4480059D815 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BFE64B18B2F4480059D815 /* UIKit.framework */; };
 		D8BFE67118B2F4480059D815 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D8BFE66F18B2F4480059D815 /* InfoPlist.strings */; };
 		D8BFE67318B2F4480059D815 /* JoeTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BFE67218B2F4480059D815 /* JoeTrackerTests.m */; };
+		D8BFE67F18B2F4F20059D815 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BFE67E18B2F4F20059D815 /* AudioToolbox.framework */; };
+		D8BFE68118B2F4FD0059D815 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BFE68018B2F4FD0059D815 /* CFNetwork.framework */; };
+		D8BFE68318B2F5080059D815 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BFE68218B2F5080059D815 /* CoreLocation.framework */; };
+		D8BFE68518B2F5140059D815 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BFE68418B2F5140059D815 /* MobileCoreServices.framework */; };
+		D8BFE68718B2F5210059D815 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BFE68618B2F5210059D815 /* libz.1.1.3.dylib */; };
+		D8BFE68918B2F5330059D815 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BFE68818B2F5330059D815 /* QuartzCore.framework */; };
+		D8BFE68B18B2F53B0059D815 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BFE68A18B2F53B0059D815 /* Security.framework */; };
+		D8BFE68D18B2F5450059D815 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BFE68C18B2F5450059D815 /* StoreKit.framework */; };
+		D8BFE68F18B2F54F0059D815 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BFE68E18B2F54E0059D815 /* SystemConfiguration.framework */; };
+		D8BFE69118B2F5D70059D815 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BFE69018B2F5D70059D815 /* Parse.framework */; };
+		D8BFE69418B321650059D815 /* JoeTrackerKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BFE69318B321650059D815 /* JoeTrackerKeyboardManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +53,7 @@
 		D8BFE65118B2F4480059D815 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D8BFE65318B2F4480059D815 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D8BFE65518B2F4480059D815 /* JoeTracker-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JoeTracker-Prefix.pch"; sourceTree = "<group>"; };
-		D8BFE65618B2F4480059D815 /* JoeTrackerAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JoeTrackerAppDelegate.h; sourceTree = "<group>"; };
+		D8BFE65618B2F4480059D815 /* JoeTrackerAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoeTrackerAppDelegate.h; sourceTree = "<group>"; };
 		D8BFE65718B2F4480059D815 /* JoeTrackerAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JoeTrackerAppDelegate.m; sourceTree = "<group>"; };
 		D8BFE65A18B2F4480059D815 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D8BFE65C18B2F4480059D815 /* JoeTrackerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JoeTrackerViewController.h; sourceTree = "<group>"; };
@@ -53,6 +64,19 @@
 		D8BFE66E18B2F4480059D815 /* JoeTrackerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JoeTrackerTests-Info.plist"; sourceTree = "<group>"; };
 		D8BFE67018B2F4480059D815 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D8BFE67218B2F4480059D815 /* JoeTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JoeTrackerTests.m; sourceTree = "<group>"; };
+		D8BFE67C18B2F46C0059D815 /* Parse 2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Parse 2.framework"; path = "../../Downloads/Parse 2.framework"; sourceTree = "<group>"; };
+		D8BFE67E18B2F4F20059D815 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		D8BFE68018B2F4FD0059D815 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		D8BFE68218B2F5080059D815 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D8BFE68418B2F5140059D815 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D8BFE68618B2F5210059D815 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		D8BFE68818B2F5330059D815 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D8BFE68A18B2F53B0059D815 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		D8BFE68C18B2F5450059D815 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		D8BFE68E18B2F54E0059D815 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D8BFE69018B2F5D70059D815 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../Downloads/Parse.framework; sourceTree = "<group>"; };
+		D8BFE69218B321650059D815 /* JoeTrackerKeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoeTrackerKeyboardManager.h; sourceTree = "<group>"; };
+		D8BFE69318B321650059D815 /* JoeTrackerKeyboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoeTrackerKeyboardManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +84,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8BFE68F18B2F54F0059D815 /* SystemConfiguration.framework in Frameworks */,
+				D8BFE68D18B2F5450059D815 /* StoreKit.framework in Frameworks */,
+				D8BFE68B18B2F53B0059D815 /* Security.framework in Frameworks */,
+				D8BFE68918B2F5330059D815 /* QuartzCore.framework in Frameworks */,
+				D8BFE68518B2F5140059D815 /* MobileCoreServices.framework in Frameworks */,
+				D8BFE68718B2F5210059D815 /* libz.1.1.3.dylib in Frameworks */,
+				D8BFE69118B2F5D70059D815 /* Parse.framework in Frameworks */,
+				D8BFE68318B2F5080059D815 /* CoreLocation.framework in Frameworks */,
+				D8BFE68118B2F4FD0059D815 /* CFNetwork.framework in Frameworks */,
+				D8BFE67F18B2F4F20059D815 /* AudioToolbox.framework in Frameworks */,
 				D8BFE64A18B2F4480059D815 /* CoreGraphics.framework in Frameworks */,
 				D8BFE64C18B2F4480059D815 /* UIKit.framework in Frameworks */,
 				D8BFE64818B2F4480059D815 /* Foundation.framework in Frameworks */,
@@ -101,6 +135,17 @@
 		D8BFE64618B2F4480059D815 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D8BFE69018B2F5D70059D815 /* Parse.framework */,
+				D8BFE68E18B2F54E0059D815 /* SystemConfiguration.framework */,
+				D8BFE68C18B2F5450059D815 /* StoreKit.framework */,
+				D8BFE68A18B2F53B0059D815 /* Security.framework */,
+				D8BFE68818B2F5330059D815 /* QuartzCore.framework */,
+				D8BFE68618B2F5210059D815 /* libz.1.1.3.dylib */,
+				D8BFE68418B2F5140059D815 /* MobileCoreServices.framework */,
+				D8BFE68218B2F5080059D815 /* CoreLocation.framework */,
+				D8BFE68018B2F4FD0059D815 /* CFNetwork.framework */,
+				D8BFE67E18B2F4F20059D815 /* AudioToolbox.framework */,
+				D8BFE67C18B2F46C0059D815 /* Parse 2.framework */,
 				D8BFE64718B2F4480059D815 /* Foundation.framework */,
 				D8BFE64918B2F4480059D815 /* CoreGraphics.framework */,
 				D8BFE64B18B2F4480059D815 /* UIKit.framework */,
@@ -115,6 +160,8 @@
 				D8BFE65618B2F4480059D815 /* JoeTrackerAppDelegate.h */,
 				D8BFE65718B2F4480059D815 /* JoeTrackerAppDelegate.m */,
 				D8BFE65918B2F4480059D815 /* Main.storyboard */,
+				D8BFE69218B321650059D815 /* JoeTrackerKeyboardManager.h */,
+				D8BFE69318B321650059D815 /* JoeTrackerKeyboardManager.m */,
 				D8BFE65C18B2F4480059D815 /* JoeTrackerViewController.h */,
 				D8BFE65D18B2F4480059D815 /* JoeTrackerViewController.m */,
 				D8BFE65F18B2F4480059D815 /* Images.xcassets */,
@@ -250,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8BFE69418B321650059D815 /* JoeTrackerKeyboardManager.m in Sources */,
 				D8BFE65818B2F4480059D815 /* JoeTrackerAppDelegate.m in Sources */,
 				D8BFE65418B2F4480059D815 /* main.m in Sources */,
 				D8BFE65E18B2F4480059D815 /* JoeTrackerViewController.m in Sources */,
@@ -379,6 +427,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/joe/Downloads,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JoeTracker/JoeTracker-Prefix.pch";
 				INFOPLIST_FILE = "JoeTracker/JoeTracker-Info.plist";
@@ -392,6 +444,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/joe/Downloads,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JoeTracker/JoeTracker-Prefix.pch";
 				INFOPLIST_FILE = "JoeTracker/JoeTracker-Info.plist";
