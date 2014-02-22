@@ -68,7 +68,7 @@ CLLocationManager *locationManager;
     PFGeoPoint *joecation = [PFGeoPoint geoPointWithLatitude:[_latitudeField.text doubleValue]
                                                    longitude:[_longitudeField.text doubleValue]];
     // Set up photo
-    UIImage *imageData = [self compressForUpload:self.chosenImage :1];
+    UIImage *imageData = [self compressForUpload:self.chosenImage: .5];
     NSString *uid = [self fileizeString:self.updateField.text];
     
     // Create new JoeTrack object
