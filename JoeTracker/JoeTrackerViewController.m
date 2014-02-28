@@ -32,7 +32,7 @@ CLLocationManager *locationManager;
 }
 
 - (IBAction)getCurrentLocation:(id)sender {
-    locationManager.delegate = self;
+    locationManager.delegate = (id)self;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
     [locationManager startUpdatingLocation];
@@ -93,7 +93,7 @@ CLLocationManager *locationManager;
 - (IBAction)takePhoto:(UIBarButtonItem *)sender
 {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
+    picker.delegate = (id)self;
     picker.allowsEditing = YES;
     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     
@@ -103,7 +103,7 @@ CLLocationManager *locationManager;
 - (IBAction)findPhoto:(UIBarButtonItem *)sender
 {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
+    picker.delegate = (id)self;
     picker.allowsEditing = YES;
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
@@ -111,33 +111,41 @@ CLLocationManager *locationManager;
 }
 
 - (IBAction)uploadPhotos:(UIBarButtonItem *)sender {
-    PFQuery *query = [PFQuery queryWithClassName:@"Joetrack"];
-    [query whereKey:@"imageWaiting" equalTo:@(YES)];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %lu joetrack.", objects.count);
-            // Do something with the found objects
-            for (PFObject *object in objects) {
-                NSString *uid = [self fileizeString: object[@"update"]];
-                UIImage *imageFile = [self loadImageforUID:uid];
-                NSData *imageData = UIImagePNGRepresentation(imageFile);
-                PFFile *image = [PFFile fileWithName:[uid stringByAppendingPathExtension:@"png"] data:imageData];
-                NSLog(@"%@", object.objectId);
-                object[@"imageWaiting"] = @NO;
-                object[@"photo"] = image;
-                [object saveInBackground];
-                [self removeImage:uid];
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Photo Upload" message:@"Upload photos now?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        PFQuery *query = [PFQuery queryWithClassName:@"Joetrack"];
+        [query whereKey:@"imageWaiting" equalTo:@(YES)];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                // The find succeeded.
+                NSLog(@"Successfully retrieved %lu joetrack.", objects.count);
+                // Do something with the found objects
+                for (PFObject *object in objects) {
+                    NSString *uid = [self fileizeString: object[@"update"]];
+                    UIImage *imageFile = [self loadImageforUID:uid];
+                    NSData *imageData = UIImagePNGRepresentation(imageFile);
+                    PFFile *image = [PFFile fileWithName:[uid stringByAppendingPathExtension:@"png"] data:imageData];
+                    NSLog(@"%@", object.objectId);
+                    object[@"imageWaiting"] = @NO;
+                    object[@"photo"] = image;
+                    [object saveInBackground];
+                    [self removeImage:uid];
+                }
+            } else {
+                UIAlertView *unreachableNetwork=[[UIAlertView alloc]initWithTitle:@"Unreachable:"
+                                                                          message:@"Try your upload again later"
+                                                                         delegate:self
+                                                                cancelButtonTitle:@"Close"
+                                                                otherButtonTitles:nil];
+                [unreachableNetwork show];
             }
-        } else {
-            UIAlertView *unreachableNetwork=[[UIAlertView alloc]initWithTitle:@"Unreachable:"
-                                                                      message:@"Try your upload again later"
-                                                                     delegate:self
-                                                            cancelButtonTitle:@"Close"
-                                                            otherButtonTitles:nil];
-            [unreachableNetwork show];
-        }
-    }];
+        }];
+    }
 }
 
 
