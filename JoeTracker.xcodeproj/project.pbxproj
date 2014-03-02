@@ -32,6 +32,9 @@
 		D8BFE68F18B2F54F0059D815 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BFE68E18B2F54E0059D815 /* SystemConfiguration.framework */; };
 		D8BFE69118B2F5D70059D815 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BFE69018B2F5D70059D815 /* Parse.framework */; };
 		D8BFE69418B321650059D815 /* JoeTrackerKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BFE69318B321650059D815 /* JoeTrackerKeyboardManager.m */; };
+		D8C4542918C053F800119361 /* JoeTrackerMainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C4542818C053F800119361 /* JoeTrackerMainPageViewController.m */; };
+		D8C5319B18C3CE3D00BD2B7F /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = D8C5319A18C3CE3D00BD2B7F /* placeholder.png */; };
+		D8FBA5BF18C3D8C500F468D5 /* JoeTrackerWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FBA5BE18C3D8C500F468D5 /* JoeTrackerWebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +80,11 @@
 		D8BFE69018B2F5D70059D815 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../Downloads/Parse.framework; sourceTree = "<group>"; };
 		D8BFE69218B321650059D815 /* JoeTrackerKeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoeTrackerKeyboardManager.h; sourceTree = "<group>"; };
 		D8BFE69318B321650059D815 /* JoeTrackerKeyboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoeTrackerKeyboardManager.m; sourceTree = "<group>"; };
+		D8C4542718C053F800119361 /* JoeTrackerMainPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoeTrackerMainPageViewController.h; sourceTree = "<group>"; };
+		D8C4542818C053F800119361 /* JoeTrackerMainPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoeTrackerMainPageViewController.m; sourceTree = "<group>"; };
+		D8C5319A18C3CE3D00BD2B7F /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = Images.xcassets/placeholder.png; sourceTree = "<group>"; };
+		D8FBA5BD18C3D8C500F468D5 /* JoeTrackerWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoeTrackerWebViewController.h; sourceTree = "<group>"; };
+		D8FBA5BE18C3D8C500F468D5 /* JoeTrackerWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoeTrackerWebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,15 +165,20 @@
 		D8BFE64D18B2F4480059D815 /* JoeTracker */ = {
 			isa = PBXGroup;
 			children = (
+				D8C5319A18C3CE3D00BD2B7F /* placeholder.png */,
 				D8BFE65618B2F4480059D815 /* JoeTrackerAppDelegate.h */,
 				D8BFE65718B2F4480059D815 /* JoeTrackerAppDelegate.m */,
 				D8BFE65918B2F4480059D815 /* Main.storyboard */,
+				D8FBA5BD18C3D8C500F468D5 /* JoeTrackerWebViewController.h */,
+				D8FBA5BE18C3D8C500F468D5 /* JoeTrackerWebViewController.m */,
 				D8BFE69218B321650059D815 /* JoeTrackerKeyboardManager.h */,
 				D8BFE69318B321650059D815 /* JoeTrackerKeyboardManager.m */,
 				D8BFE65C18B2F4480059D815 /* JoeTrackerViewController.h */,
 				D8BFE65D18B2F4480059D815 /* JoeTrackerViewController.m */,
 				D8BFE65F18B2F4480059D815 /* Images.xcassets */,
 				D8BFE64E18B2F4480059D815 /* Supporting Files */,
+				D8C4542718C053F800119361 /* JoeTrackerMainPageViewController.h */,
+				D8C4542818C053F800119361 /* JoeTrackerMainPageViewController.m */,
 			);
 			path = JoeTracker;
 			sourceTree = "<group>";
@@ -277,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8BFE66018B2F4480059D815 /* Images.xcassets in Resources */,
+				D8C5319B18C3CE3D00BD2B7F /* placeholder.png in Resources */,
 				D8BFE65218B2F4480059D815 /* InfoPlist.strings in Resources */,
 				D8BFE65B18B2F4480059D815 /* Main.storyboard in Resources */,
 			);
@@ -299,8 +313,10 @@
 			files = (
 				D8BFE69418B321650059D815 /* JoeTrackerKeyboardManager.m in Sources */,
 				D8BFE65818B2F4480059D815 /* JoeTrackerAppDelegate.m in Sources */,
+				D8C4542918C053F800119361 /* JoeTrackerMainPageViewController.m in Sources */,
 				D8BFE65418B2F4480059D815 /* main.m in Sources */,
 				D8BFE65E18B2F4480059D815 /* JoeTrackerViewController.m in Sources */,
+				D8FBA5BF18C3D8C500F468D5 /* JoeTrackerWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +533,7 @@
 				D8BFE67818B2F4480059D815 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D8BFE67918B2F4480059D815 /* Build configuration list for PBXNativeTarget "JoeTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +542,7 @@
 				D8BFE67B18B2F4480059D815 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

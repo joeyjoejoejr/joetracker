@@ -22,5 +22,4 @@
 - (IBAction)saveInformation:(id)sender;
 - (IBAction)takePhoto:(UIBarButtonItem *)sender;
 - (IBAction)findPhoto:(UIBarButtonItem *)sender;
-- (IBAction)uploadPhotos:(UIBarButtonItem *)sender;
 @end

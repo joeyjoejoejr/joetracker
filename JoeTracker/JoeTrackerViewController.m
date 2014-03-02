@@ -90,6 +90,18 @@ CLLocationManager *locationManager;
     [joeTrack saveEventually];
 }
 
+- (NSString *)fileizeString: (NSString *)original
+{
+    NSError *error = nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\W+" options:
+                                  NSRegularExpressionCaseInsensitive error:&error];
+    NSString *modifiedString = [regex stringByReplacingMatchesInString:original
+                                                               options:0 range:NSMakeRange(0, [original length])
+                                                          withTemplate:@""];
+    NSLog(@"%@", modifiedString);
+    return modifiedString;
+}
+
 - (IBAction)takePhoto:(UIBarButtonItem *)sender
 {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
@@ -108,44 +120,6 @@ CLLocationManager *locationManager;
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
     [self presentViewController:picker animated:YES completion:NULL];
-}
-
-- (IBAction)uploadPhotos:(UIBarButtonItem *)sender {
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Photo Upload" message:@"Upload photos now?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
-    [alert show];
-}
-
-- (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 1) {
-        PFQuery *query = [PFQuery queryWithClassName:@"Joetrack"];
-        [query whereKey:@"imageWaiting" equalTo:@(YES)];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            if (!error) {
-                // The find succeeded.
-                NSLog(@"Successfully retrieved %lu joetrack.", objects.count);
-                // Do something with the found objects
-                for (PFObject *object in objects) {
-                    NSString *uid = [self fileizeString: object[@"update"]];
-                    UIImage *imageFile = [self loadImageforUID:uid];
-                    NSData *imageData = UIImagePNGRepresentation(imageFile);
-                    PFFile *image = [PFFile fileWithName:[uid stringByAppendingPathExtension:@"png"] data:imageData];
-                    NSLog(@"%@", object.objectId);
-                    object[@"imageWaiting"] = @NO;
-                    object[@"photo"] = image;
-                    [object saveInBackground];
-                    [self removeImage:uid];
-                }
-            } else {
-                UIAlertView *unreachableNetwork=[[UIAlertView alloc]initWithTitle:@"Unreachable:"
-                                                                          message:@"Try your upload again later"
-                                                                         delegate:self
-                                                                cancelButtonTitle:@"Close"
-                                                                otherButtonTitles:nil];
-                [unreachableNetwork show];
-            }
-        }];
-    }
 }
 
 
@@ -197,17 +171,6 @@ CLLocationManager *locationManager;
     return compressedImage;
 }
 
-- (NSString *)fileizeString: (NSString *)original
-{
-    NSError *error = nil;
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\W+" options:
-                                  NSRegularExpressionCaseInsensitive error:&error];
-    NSString *modifiedString = [regex stringByReplacingMatchesInString:original
-                                                               options:0 range:NSMakeRange(0, [original length])
-                                                          withTemplate:@""];
-    NSLog(@"%@", modifiedString);
-    return modifiedString;
-}
 
 - (void)saveImage: (UIImage*)image forUID: (NSString *)uid
 {
@@ -221,33 +184,6 @@ CLLocationManager *locationManager;
         NSLog(@"File Path: %@", path);
         NSData* data = UIImagePNGRepresentation(image);
         [data writeToFile:path atomically:YES];
-    }
-}
-
-- (UIImage*)loadImageforUID: (NSString *)uid
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                         NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString* path = [documentsDirectory stringByAppendingPathComponent:
-                      [uid stringByAppendingString:@".png"]];
-    NSLog(@"File Path: %@", path);
-    UIImage* image = [UIImage imageWithContentsOfFile:path];
-    return image;
-}
-
-- (void)removeImage:(NSString *)fileName
-{
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                                   NSUserDomainMask, YES) objectAtIndex:0];
-    
-    NSString *filePath = [documentsPath stringByAppendingPathComponent:[fileName stringByAppendingString:@".png"]];
-    NSLog(@"File Path: %@", filePath);
-    NSError *error;
-    BOOL success = [fileManager removeItemAtPath:filePath error:&error];
-    if (!success) {
-        NSLog(@"Could not delete file -:%@ ",[error localizedDescription]);
     }
 }
 
