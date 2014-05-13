@@ -79,6 +79,7 @@ CLLocationManager *locationManager;
     joeTrack[@"joecation_accuracy"] = @([_hAccuracyField.text intValue]);
     joeTrack[@"update"] = _updateField.text;
     joeTrack[@"mood"] = @(_moodSegment.selectedSegmentIndex);
+    joeTrack[@"saved_at"] = [NSDate date];
     if (imageData) {
         joeTrack[@"imageWaiting"] = @(YES);
     }

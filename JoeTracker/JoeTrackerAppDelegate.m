@@ -24,8 +24,8 @@
     }
 
     // Override point for customization after application launch.
-    [Parse setApplicationId:@"71DcbUvypFTJWdQVaSDSl6V182hnybLp9AznI1he"
-                  clientKey:@"LxtSRApKrDPwEpVat7Lu2P1nkbQjdXE5Pzy1hwu9"];
+    [Parse setApplicationId:@"qW41XjliRnUR7UiGI6KzhYChPsJIIT5tsHtSsqWD"
+                  clientKey:@"mtz40eoXFru6yCRXnKH3IfT0RqTyz4mussGD6n18"];
     return YES;
 }
 							
