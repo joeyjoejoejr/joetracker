@@ -63,7 +63,7 @@
             if (!error) {
                 // The find succeeded.
                 NSLog(@"Successfully retrieved %lu joetrack.", objects.count);
-                int i = 1;
+                __block int i = 1;
                 // Do something with the found objects
                 for (PFObject *object in objects) {
                     NSString *uid = [self fileizeString: object[@"update"]];
@@ -73,10 +73,19 @@
                     NSLog(@"%@", object.objectId);
                     object[@"imageWaiting"] = @NO;
                     object[@"photo"] = image;
-                    [object saveInBackground];
-                    [self removeImage:uid];
-                    self.numberPhotosToUpload.text = [@([objects count] - i) description];
-                    i++;
+                    NSLog(@"i: %@", [@(i) description]);
+                    [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                        if (succeeded) {
+                            NSLog(@"Upload Succeeded");
+                            [self removeImage:uid];
+                            self.numberPhotosToUpload.text = [@([objects count] - i) description];
+                            NSLog(@"i: %@", [@(i) description]);
+                            NSLog(@"Objects: %@", [@([objects count]) description]);
+                            i++;
+                        } else {
+                            NSLog(@"Error: %@", error);
+                        }
+                    }];
                 }
             } else {
                 UIAlertView *unreachableNetwork=[[UIAlertView alloc]initWithTitle:@"Unreachable:"

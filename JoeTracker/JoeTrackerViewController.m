@@ -68,7 +68,7 @@ CLLocationManager *locationManager;
     PFGeoPoint *joecation = [PFGeoPoint geoPointWithLatitude:[_latitudeField.text doubleValue]
                                                    longitude:[_longitudeField.text doubleValue]];
     // Set up photo
-    UIImage *imageData = [self compressForUpload:self.chosenImage: .5];
+    UIImage *imageData = [self compressForUpload:self.chosenImage: .25];
     NSString *uid = [self fileizeString:self.updateField.text];
     
     // Create new JoeTrack object
@@ -107,7 +107,7 @@ CLLocationManager *locationManager;
 {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = (id)self;
-    picker.allowsEditing = YES;
+    picker.allowsEditing = NO;
     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     
     [self presentViewController:picker animated:YES completion:NULL];
@@ -117,7 +117,7 @@ CLLocationManager *locationManager;
 {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = (id)self;
-    picker.allowsEditing = YES;
+    picker.allowsEditing = NO;
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
     [self presentViewController:picker animated:YES completion:NULL];
@@ -126,7 +126,7 @@ CLLocationManager *locationManager;
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    UIImage *chosenImage = info[UIImagePickerControllerOriginalImage];
     self.chosenImage  = chosenImage;
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
@@ -162,6 +162,9 @@ CLLocationManager *locationManager;
     // Calculate new size given scale factor.
     CGSize originalSize = original.size;
     CGSize newSize = CGSizeMake(originalSize.width * scale, originalSize.height * scale);
+    NSLog(@"ORIGINAL Width:  %f, Height: %f", originalSize.width, originalSize.height);
+    NSLog(@"NEW Width:  %f, Height: %f", newSize.width, newSize.height);
+
     
     // Scale the original image to match the new size.
     UIGraphicsBeginImageContext(newSize);
